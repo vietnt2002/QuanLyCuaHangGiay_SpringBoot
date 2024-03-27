@@ -19,4 +19,7 @@ public interface ChiTietSanPhamRepository extends JpaRepository<ChiTietSanPham, 
 
     @Query("select ctsp from ChiTietSanPham ctsp where ctsp.idSanPham.id = :idSP")
     public List<ChiTietSanPham> findByIdSanPham(@Param("idSP") int idSP);
+
+    @Query("select ctsp from ChiTietSanPham ctsp where ctsp.idSanPham.id = :idSP and ctsp.idKichThuoc.id = :idKT and ctsp.idMauSac.id = :idMS")
+    public ChiTietSanPham findByIdSanPhamAndIdKichThuocAndIdMauSac(@Param("idSP") int idSP, @Param("idKT") int idKT, @Param("idMS") int idMS);
 }

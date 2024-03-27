@@ -53,32 +53,20 @@
             </li>
 
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+                <a href="/store/quan-ly-khach-hang">Quản lý khách hàng</a>
             </li>
 
             <li>
-                <a href="#">Contact</a>
+                <a href="/store/quan-ly-nhan-vien">Quản lý nhân viên</a>
             </li>
+
             <li>
                 <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý tài khoản</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu1">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="/store/sua-thong-tin">Sửa thông tin</a>
                     </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
+
                     <li>
                         <a href="/store/dang-xuat">Đăng xuất</a>
                     </li>

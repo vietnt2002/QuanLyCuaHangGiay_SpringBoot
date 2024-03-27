@@ -234,15 +234,23 @@ public class BanHangController {
         MauSac mauSac = mauSacRepo.findById(ctspReq.getIdMauSac()).get();
         SanPham sanPham = sanPhamRepo.findById(ctspReq.getIdSanPham()).get();
 
-        ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
-        chiTietSanPham.setMa(ctspReq.getMa());
-        chiTietSanPham.setIdKichThuoc(kichThuoc);
-        chiTietSanPham.setIdSanPham(sanPham);
-        chiTietSanPham.setIdMauSac(mauSac);
-        chiTietSanPham.setSoLuong(ctspReq.getSoLuong());
-        chiTietSanPham.setDonGia(ctspReq.getDonGia());
-        chiTietSanPham.setTrangThai(ctspReq.getTrangThai());
-        chiTietSanPhamRepo.save(chiTietSanPham);
+        //check trùng chi tiết sản phẩm
+        ChiTietSanPham chiTietSanPhamCanTim = chiTietSanPhamRepo.findByIdSanPhamAndIdKichThuocAndIdMauSac(ctspReq.getIdSanPham(), ctspReq.getIdKichThuoc(), ctspReq.getIdMauSac());
+        if (chiTietSanPhamCanTim == null){
+            ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
+            chiTietSanPham.setMa(ctspReq.getMa());
+            chiTietSanPham.setIdKichThuoc(kichThuoc);
+            chiTietSanPham.setIdSanPham(sanPham);
+            chiTietSanPham.setIdMauSac(mauSac);
+            chiTietSanPham.setSoLuong(ctspReq.getSoLuong());
+            chiTietSanPham.setDonGia(ctspReq.getDonGia());
+            chiTietSanPham.setTrangThai(ctspReq.getTrangThai());
+            chiTietSanPhamRepo.save(chiTietSanPham);
+        }else {
+            chiTietSanPhamCanTim.setId(chiTietSanPhamCanTim.getId());
+            chiTietSanPhamCanTim.setSoLuong(chiTietSanPhamCanTim.getSoLuong() + ctspReq.getSoLuong());
+            chiTietSanPhamRepo.save(chiTietSanPhamCanTim);
+        }
         return "redirect:/store/spDetail/" + UserInfor.idSP;
     }
 

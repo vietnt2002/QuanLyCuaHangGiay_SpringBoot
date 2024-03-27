@@ -12,8 +12,8 @@ import java.util.List;
 
 @Repository
 public interface MauSacRepository extends JpaRepository<MauSac, Integer> {
-    public static final int HOAT_DONG = 0;
-    public static final int KHONG_HOAT_DONG = 1;
+    public static final int HOAT_DONG = 1;
+    public static final int KHONG_HOAT_DONG = 0;
 
 //    @Query("select ms from MauSac ms where ms.trangThai = :trangThai")
 //    public List<MauSac> findByTrangThai(@Param("trangThai") int trangThai);

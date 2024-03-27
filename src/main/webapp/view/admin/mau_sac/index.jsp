@@ -32,7 +32,7 @@
                 <td>${mauSac.id}</td>
                 <td>${mauSac.ma}</td>
                 <td>${mauSac.ten}</td>
-                <td>${mauSac.trangThai==0?"Hoạt động" : "Không hoạt động"}</td>
+                <td>${mauSac.trangThai==1?"Hoạt động" : "Không hoạt động"}</td>
                 <td>
                     <a href="/mau-sac/edit/${mauSac.id}"><button class="btn btn-warning">Sửa</button></a>
                     <a href="/mau-sac/delete/${mauSac.id}"><button class="btn btn-danger">Xóa</button></a>

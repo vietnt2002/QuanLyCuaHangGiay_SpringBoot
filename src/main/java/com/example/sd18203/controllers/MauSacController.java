@@ -26,10 +26,10 @@ public class MauSacController {
             Model model,
             @RequestParam("page") Optional<Integer> pageParam
     ){
-
         Pageable pageable = PageRequest.of(pageParam.orElse(0), 3);
         Page<MauSac> pageMauSac = mauSacRepo.findByTrangThai(MauSacRepository.HOAT_DONG, pageable);
         model.addAttribute("pageMauSac", pageMauSac);
+        System.out.println("List" + pageMauSac);
         return "admin/mau_sac/index";
     }
 
